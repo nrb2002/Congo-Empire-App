@@ -5,25 +5,15 @@ import { loadMap } from './pages/map.js';
 import { loadFavorites } from './pages/favorites.js';
 
 export function initApp() {
-  const page = document.body.dataset.page;
+  const page = document.body.dataset.page || 'home';
 
-  switch (page) {
-    case 'home':
-      loadHome();
-      break;
-    case 'weather':
-      loadWeather();
-      break;
-    case 'places':
-      loadPlaces();
-      break;
-    case 'map':
-      loadMap();
-      break;
-    case 'favorites':
-      loadFavorites();
-      break;
-    default:
-      loadHome();
-  }
+  const routes = {
+    home: loadHome,
+    weather: loadWeather,
+    places: loadPlaces,
+    map: loadMap,
+    favorites: loadFavorites,
+  };
+
+  (routes[page] || loadHome)();
 }

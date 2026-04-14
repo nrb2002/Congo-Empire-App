@@ -1,0 +1,139 @@
+Phase 1: Project Setup (Foundation).
+
+🚀 1. Create the Vite Project
+npm create vite@latest congo-empire -- --template vanilla
+cd congo-empire
+npm install
+🧱 2. Install Required Dev Tools
+ESLint
+npm install -D eslint
+npx eslint --init
+
+Choose:
+
+JavaScript modules (ESM)
+Browser environment
+JSON config
+No framework
+Prettier
+npm install -D prettier
+
+Create .prettierrc:
+
+{
+  "semi": true,
+  "singleQuote": true,
+  "trailingComma": "es5",
+  "printWidth": 80
+}
+
+Create .prettierignore:
+
+dist
+node_modules
+Optional (recommended for WDD330 quality)
+npm install -D eslint-config-prettier eslint-plugin-prettier
+📁 3. Recommended Project Structure (WDD330 Style)
+
+We will NOT keep everything flat like basic Vite apps. We structure like SleepOutside:
+
+congo-empire/
+│
+├── index.html
+├── weather.html
+├── places.html
+├── map.html
+├── favorites.html
+│
+├── src/
+│   ├── js/
+│   │   ├── main.js
+│   │   ├── app.js
+│   │   │
+│   │   ├── api/
+│   │   │   ├── weatherApi.js
+│   │   │   ├── placesApi.js
+│   │   │
+│   │   ├── components/
+│   │   │   ├── navbar.js
+│   │   │   ├── placeCard.js
+│   │   │
+│   │   ├── pages/
+│   │   │   ├── home.js
+│   │   │   ├── weather.js
+│   │   │   ├── places.js
+│   │   │   ├── map.js
+│   │   │   ├── favorites.js
+│   │   │
+│   │   ├── utils/
+│   │   │   ├── storage.js
+│   │   │   ├── router.js
+│   │   │
+│   │   └── data/
+│   │       ├── mockPlaces.js
+│   │
+│   ├── css/
+│   │   ├── style.css
+│   │   ├── variables.css
+│   │   ├── components.css
+│   │
+│   ├── assets/
+│   │   ├── images/
+│   │   ├── icons/
+│
+└── vite.config.js
+⚙️ 4. Base App Entry (Vite)
+src/js/main.js
+import '../css/style.css';
+import { initApp } from './app.js';
+
+initApp();
+src/js/app.js
+
+This will act like your controller (SleepOutside style).
+
+import { loadHome } from './pages/home.js';
+import { loadWeather } from './pages/weather.js';
+import { loadPlaces } from './pages/places.js';
+import { loadMap } from './pages/map.js';
+import { loadFavorites } from './pages/favorites.js';
+
+export function initApp() {
+  const page = document.body.dataset.page;
+
+  switch (page) {
+    case 'home':
+      loadHome();
+      break;
+    case 'weather':
+      loadWeather();
+      break;
+    case 'places':
+      loadPlaces();
+      break;
+    case 'map':
+      loadMap();
+      break;
+    case 'favorites':
+      loadFavorites();
+      break;
+    default:
+      loadHome();
+  }
+}
+🌐 5. Example HTML Page Pattern
+index.html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Congo Empire</title>
+  </head>
+
+  <body data-page="home">
+    <div id="app"></div>
+
+    <script type="module" src="/src/js/main.js"></script>
+  </body>
+</html>

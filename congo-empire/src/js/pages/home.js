@@ -1,8 +1,78 @@
-export function loadHome() {
+// export function loadHome() {
     
+//     const app = document.querySelector('#app');
+    
+//     //Test code to verify page load
+//     // app.innerHTML = `<h1>Congo Empire is running</h1>`;
+//     //console.log('Test: Home page loaded');
+
+//     //Display cards
+//     app.innerHTML = `
+//         <h1>Congo Empire 🇨🇩</h1>
+//         <div id="places-container" class="grid"></div>
+//         `;
+
+  
+
+// }
+
+export function loadHome() {
   const app = document.querySelector('#app');
 
-  app.innerHTML = `<h1>🔥 Congo Empire is running</h1>`;
+  app.innerHTML = `
+    <!-- HEADER -->
+    <header class="header">
+      <div>Congo Empire</div>
+      <div>☰</div>
+    </header>
 
-  console.log('Test: Home page loaded');
+    <!-- HERO -->
+    <section class="hero">
+      <h1>Welcome to the DRC</h1>
+      <p>Explore the Heart of Africa</p>
+    </section>
+
+    <!-- WEATHER -->
+    <section class="weather-section">
+      <div class="card weather-card">
+        <div>
+          <h3>Kinshasa Weather</h3>
+          <p>28°C Sunny</p>
+        </div>
+        <div>☀️</div>
+      </div>
+
+      <div class="card weather-card">
+        <div>
+          <h3>Current City</h3>
+          <p>22°C Cloudy</p>
+        </div>
+        <div>☁️</div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- PLACES -->
+    <section>
+      <h2 class="section-title">Featured Places</h2>
+
+      <div class="places-container">
+        <div class="card place-item">
+          <img src="/images/kinshasa.jpg" alt="Kinshasa">
+          <h3>Kinshasa</h3>
+        </div>
+
+        <div class="card place-item">
+          <img src="/images/goma.jpg" alt="Goma">
+          <h3>Goma</h3>
+        </div>
+
+        <div class="card place-item">
+          <img src="/images/lubumbashi.jpg" alt="Lubumbashi">
+          <h3>Lubumbashi</h3>
+        </div>
+      </div>
+    </section>
+  `;
 }

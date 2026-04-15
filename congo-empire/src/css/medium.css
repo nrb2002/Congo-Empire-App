@@ -1,0 +1,34 @@
+/* =========================
+   TABLET (≥ 768px)
+========================= */
+@media (min-width: 768px) {
+    .hero {
+        padding: 3rem;
+    }
+
+    .weather-section {
+        display: flex;
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+
+    .weather-card {
+        flex: 1;
+    }
+
+    .places-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+    .place-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .place-item img {
+        width: 100%;
+        height: 150px;
+    }
+}

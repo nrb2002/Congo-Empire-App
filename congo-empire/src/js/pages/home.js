@@ -1,21 +1,4 @@
-// export function loadHome() {
-    
-//     const app = document.querySelector('#app');
-    
-//     //Test code to verify page load
-//     // app.innerHTML = `<h1>Congo Empire is running</h1>`;
-//     //console.log('Test: Home page loaded');
-
-//     //Display cards
-//     app.innerHTML = `
-//         <h1>Congo Empire 🇨🇩</h1>
-//         <div id="places-container" class="grid"></div>
-//         `;
-
-  
-
-// }
-
+// Build home page
 export function loadHome() {
   const app = document.querySelector('#app');
 
@@ -28,8 +11,8 @@ export function loadHome() {
 
     <!-- HERO -->
     <section class="hero">
-      <h1>Welcome to the DRC</h1>
-      <p>Explore the Heart of Africa</p>
+      <h1>Welcome to the Democratic Republic of the Congo</h1>
+      <p>Let's explore the Heart of Africa</p>
     </section>
 
     <!-- WEATHER -->

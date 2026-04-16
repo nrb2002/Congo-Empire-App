@@ -8,24 +8,40 @@
   /* **************************************************** */
   .nav {
     position: static;
+    height: auto;        
+    width: auto;
+
     display: flex;
     flex-direction: row;
-    opacity: 1;
+
     transform: none;
-    pointer-events: auto;
-    background: none;
-    width: auto;
+    box-shadow: none;
+    padding: 0;          
+  
   }
 
   .overlay {
-    display: none;
+    position: fixed;
+    inset: 0;
+
+    width: auto;
+    height: auto;
+
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+
+  .overlay.active {
+    opacity: 0.8;
+    pointer-events: auto;
   }
 
   .menu-icon {
     display: none;
   }
 
-    /* **************************************************** */
+  /* **************************************************** */
     /* Hero Styles
   /* **************************************************** */
 
@@ -34,29 +50,35 @@
     height: 60vh;
   }
 
+  /* **************************************************** */
+  /* Weather Section */
+  /* **************************************************** */
   .weather-section {
     display: flex;
     gap: 1rem;
     padding: 0 1rem;
   }
 
+  .weather-content {
+    justify-content: space-between;
+    flex-direction:row;
+  }
+
   .weather-card {
     flex: 1;
   }
 
+  /* **************************************************** */
+  /* Places styles */
+  /* **************************************************** */
   .places-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
     padding: 0 1rem;
   }
-  .place-item {
-    flex-direction: column;
-    text-align: center;
-  }
 
-  .place-item img {
-    width: 100%;
-    height: 150px;
+  .place-card img {
+    height: 250px;
   }
 }

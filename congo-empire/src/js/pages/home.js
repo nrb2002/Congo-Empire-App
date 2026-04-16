@@ -2,6 +2,7 @@ import { navbar } from '../components/navbar.js';
 import { footer } from '../components/footer.js';
 import { heroSlider } from '../components/heroSlider.js';
 import { weatherWidget } from '../components/weatherWidget.js';
+import { placesWidget } from '../components/placesWidget.js';
 import { getWeather } from '../services/weatherServices.js';
 
 
@@ -18,7 +19,7 @@ export function loadHome() {
         ${heroSlider([
         '/images/Bangalos-Zongo.jpeg',
         '/images/mutli-color-bird.jpg',
-        '/images/robot-roulage.jpg'
+        '/images/mode-et-beaute.jpg'
       ])}
 
       <div class="hero-overlay"> 
@@ -33,48 +34,8 @@ export function loadHome() {
     <!-- PAGE DIVIDER -->
     <div class="divider"></div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- PLACES -->
-    <section>
-      <h2 class="section-title">Featured Places</h2>
-
-      <div class="places-container">
-        <div class="card place-item">
-          <img src="/images/kinshasa.jpg" alt="Kinshasa">
-          <h3>Kinshasa</h3>
-        </div>
-
-        <div class="card place-item">
-          <img src="/images/goma.jpg" alt="Goma">
-          <h3>Goma</h3>
-        </div>
-
-        <div class="card place-item">
-          <img src="/images/lubumbashi.jpg" alt="Lubumbashi">
-          <h3>Lubumbashi</h3>
-        </div>
-      </div>
-    </section>
+    <!-- PLACES WIDGET -->
+    ${placesWidget()}
 
     ${footer()}
   `;
@@ -145,6 +106,13 @@ async function loadWeatherData() {
   
   const data = await getWeather(lat, lon, "apiKey");
 
+  const temp = Math.round(data.main.temp);
+  const tempImperial = Math.round((temp* 9/5) + 32);
+
   document.querySelector("#city").textContent = data.name;
-  document.querySelector("#current-temp").textContent = `${Math.round(data.main.temp)}°C`;
+  document.querySelector("#current-temp").textContent = `${temp}°C`;
+  document.querySelector("#temp-imperial").textContent = `${tempImperial}°F`;
+  	
+
+
 }

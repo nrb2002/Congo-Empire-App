@@ -4,20 +4,7 @@ import { heroSlider } from '../components/heroSlider.js';
 import { weatherWidget } from '../components/weatherWidget.js';
 import { getWeather } from '../services/weatherServices.js';
 
-async function loadWeatherData() {
-  //Specify the latitude and longitude of Trier, Germany using the information you have gathered and the examples provided.
-  const lat = -4.322447;
-  const lon = 15.307045;
-  //Set the units to imperial: "units=imperial"
-  const units = "metric";
-  //Provide your API key: "appid=[enter your key here]"
-  const apiKey = "d100c53e022ac740b8e46f1ae5caf79f";
-  
-  const data = await getWeather(lat, lon, "apiKey");
 
-  document.querySelector("#city").textContent = data.name;
-  document.querySelector("#current-temp").textContent = `${Math.round(data.main.temp)}°C`;
-}
 
 export function loadHome() {
   const app = document.querySelector('#app');
@@ -43,15 +30,7 @@ export function loadHome() {
     <!-- WEATHER WIDGET -->
     ${weatherWidget()}
 
-
-
-
-
-
-
-
-
-
+    <!-- PAGE DIVIDER -->
     <div class="divider"></div>
 
 
@@ -153,4 +132,19 @@ export function loadHome() {
       showSlide(current);
     }, 4000);
   }
+}
+
+async function loadWeatherData() {
+  //Specify the latitude and longitude of Trier, Germany using the information you have gathered and the examples provided.
+  const lat = -4.322447;
+  const lon = 15.307045;
+  //Set the units to imperial: "units=imperial"
+  const units = "metric";
+  //Provide your API key: "appid=[enter your key here]"
+  const apiKey = "d100c53e022ac740b8e46f1ae5caf79f";
+  
+  const data = await getWeather(lat, lon, "apiKey");
+
+  document.querySelector("#city").textContent = data.name;
+  document.querySelector("#current-temp").textContent = `${Math.round(data.main.temp)}°C`;
 }

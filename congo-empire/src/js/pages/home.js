@@ -1,18 +1,18 @@
-// Build home page
+import { navbar } from '../components/navbar.js';
+import { footer } from '../components/footer.js';
+
 export function loadHome() {
   const app = document.querySelector('#app');
 
   app.innerHTML = `
-    <!-- HEADER -->
-    <header class="header">
-      <div>Congo Empire</div>
-      <div>☰</div>
-    </header>
+    ${navbar()}
 
     <!-- HERO -->
     <section class="hero">
-      <h1>Welcome to the Democratic Republic of the Congo</h1>
-      <p>Let's explore the Heart of Africa</p>
+      <div class="hero-overlay">
+        <h1>Welcome to the Democratic Republic of the Congo</h1>
+        <p>Let's explore the Heart of Africa</p>
+      </div>
     </section>
 
     <!-- WEATHER -->
@@ -57,5 +57,7 @@ export function loadHome() {
         </div>
       </div>
     </section>
+
+    ${footer()}
   `;
 }

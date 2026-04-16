@@ -2,8 +2,17 @@
    TABLET (≥ 768px)
 ========================= */
 @media (min-width: 768px) {
+  .nav {
+    display: flex;
+  }
+
+  .menu-icon {
+    display: none;
+  }
+
   .hero {
     padding: 3rem;
+    height: 60vh;
   }
 
   .weather-section {

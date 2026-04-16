@@ -15,21 +15,69 @@ body {
   align-items: center;
 }
 
+/* **************************************************** */
+/* Navigation
+/* **************************************************** */
+
+/* Base nav (hidden on mobile) */
 .nav {
-  display: none;
-  gap: 1rem;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background: var(--primary);
+  width: 220px;
+  flex-direction: column;
+  padding: 1rem;
+  border-radius: 8px;
+
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: all 0.3s ease;
 }
 
+/* ACTIVE STATE */
+.nav.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  display: flex;
+}
+
+/* LINKS */
 .nav a {
+  padding: 0.5rem 0;
   text-decoration: none;
   color: black;
   font-weight: bold;
 }
 
+/* MENU ICON */
 .menu-icon {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   cursor: pointer;
+  z-index: 1001;
 }
+
+/* OVERLAY BACKGROUND */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease;
+  z-index: 1000;
+}
+
+.overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* **************************************************** */
+/* Hero Styles
+/* **************************************************** */
 
 /* Hero */
 .hero {

@@ -2,13 +2,32 @@
    TABLET (≥ 768px)
 ========================= */
 @media (min-width: 768px) {
+
+  /* **************************************************** */
+    /* Navigation Styles
+  /* **************************************************** */
   .nav {
+    position: static;
     display: flex;
+    flex-direction: row;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+    background: none;
+    width: auto;
+  }
+
+  .overlay {
+    display: none;
   }
 
   .menu-icon {
     display: none;
   }
+
+    /* **************************************************** */
+    /* Hero Styles
+  /* **************************************************** */
 
   .hero {
     padding: 3rem;

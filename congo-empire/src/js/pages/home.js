@@ -60,4 +60,37 @@ export function loadHome() {
 
     ${footer()}
   `;
+
+  const menuToggle = document.querySelector('#menu-toggle');
+  const navMenu = document.querySelector('#nav-menu');
+  const overlay = document.querySelector('#overlay');
+  const menuIcon = document.querySelector('#menu-icon');
+
+  if (menuToggle && navMenu && overlay) {
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      overlay.classList.toggle('active');
+
+      // Toggle icon
+      if (navMenu.classList.contains('active')) {
+        menuIcon.textContent = '✖';
+      } else {
+        menuIcon.textContent = '☰';
+      }
+    });
+
+    // Close when clicking overlay
+    overlay.addEventListener('click', () => {
+      navMenu.classList.remove('active');
+      overlay.classList.remove('active');
+      menuIcon.textContent = '☰';
+    });
+
+    // Close when clicking a link
+    navMenu.addEventListener('click', () => {
+      navMenu.classList.remove('active');
+      overlay.classList.remove('active');
+      menuIcon.textContent = '☰';
+    });
+  }
 }

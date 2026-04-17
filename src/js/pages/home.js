@@ -5,8 +5,6 @@ import { weatherWidget } from '../components/weatherWidget.js';
 import { placesWidget } from '../components/placesWidget.js';
 import { getWeather } from '../services/weatherServices.js';
 
-
-
 export function loadHome() {
   const app = document.querySelector('#app');
 
@@ -17,10 +15,11 @@ export function loadHome() {
     <section class="hero">
       <div class="hero-slider">
         ${heroSlider([
-        '/images/Bangalos-Zongo.jpeg',
-        '/images/mutli-color-bird.jpg',
-        '/images/mode-et-beaute.jpg'
-      ])}
+          '/images/Bangalos-Zongo.jpeg',
+          '/images/mutli-color-bird.jpg',
+          '/images/mode-et-beaute.jpg'
+        ])}
+      </div>
 
       <div class="hero-overlay"> 
         <h1>Congo Empire</h1>
@@ -74,17 +73,17 @@ export function loadHome() {
     }
   });
 
- 
-
   // =========================
-  // HERO SLIDER 
+  // HERO SLIDER
   // =========================
   const slides = document.querySelectorAll('.hero-slider .slide');
   let current = 0;
 
   function showSlide(index) {
     slides.forEach(s => s.classList.remove('active'));
-    slides[index].classList.add('active');
+    if (slides[index]) {
+      slides[index].classList.add('active');
+    }
   }
 
   if (slides.length > 0) {
@@ -93,26 +92,39 @@ export function loadHome() {
       showSlide(current);
     }, 4000);
   }
+
+  // =========================
+  // WEATHER LOADER
+  // =========================
+  loadWeatherData();
 }
 
+// =========================
+// WEATHER FUNCTION
+// =========================
 async function loadWeatherData() {
-  //Specify the latitude and longitude of Trier, Germany using the information you have gathered and the examples provided.
-  const lat = -4.322447;
-  const lon = 15.307045;
-  //Set the units to imperial: "units=imperial"
-  const units = "metric";
-  //Provide your API key: "appid=[enter your key here]"
-  const apiKey = "d100c53e022ac740b8e46f1ae5caf79f";
-  
-  const data = await getWeather(lat, lon, "apiKey");
+  try {
+    const lat = -4.322447;
+    const lon = 15.307045;
+    const units = "metric";
+    const apiKey = "d100c53e022ac740b8e46f1ae5caf79f";
 
-  const temp = Math.round(data.main.temp);
-  const tempImperial = Math.round((temp* 9/5) + 32);
+    const data = await getWeather(lat, lon, apiKey, units);
 
-  document.querySelector("#city").textContent = data.name;
-  document.querySelector("#current-temp").textContent = `${temp}°C`;
-  document.querySelector("#temp-imperial").textContent = `${tempImperial}°F`;
-  	
+    const city = document.querySelector("#city");
+    const currentTemp = document.querySelector("#current-temp");
+    const tempImperial = document.querySelector("#temp-imperial");
 
+    if (!city || !currentTemp || !tempImperial) return;
 
+    const celsius = Math.round(data.main.temp);
+    const fahrenheit = Math.round((celsius * 9) / 5 + 32);
+
+    city.textContent = data.name;
+    currentTemp.textContent = `${celsius}°C`;
+    tempImperial.textContent = `${fahrenheit}°F`;
+
+  } catch (error) {
+    console.error("Weather loading error:", error);
+  }
 }

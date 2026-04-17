@@ -2,13 +2,12 @@
    TABLET (≥ 768px)
 ========================= */
 @media (min-width: 768px) {
-
   /* **************************************************** */
-    /* Navigation Styles
+  /* Navigation Styles
   /* **************************************************** */
   .nav {
     position: static;
-    height: auto;        
+    height: auto;
     width: auto;
 
     display: flex;
@@ -16,8 +15,7 @@
 
     transform: none;
     box-shadow: none;
-    padding: 0;          
-  
+    padding: 0;
   }
 
   .overlay {
@@ -42,7 +40,7 @@
   }
 
   /* **************************************************** */
-    /* Hero Styles
+  /* Hero Styles
   /* **************************************************** */
 
   .hero {
@@ -61,7 +59,7 @@
 
   .weather-content {
     justify-content: space-between;
-    flex-direction:row;
+    flex-direction: row;
   }
 
   .weather-card {

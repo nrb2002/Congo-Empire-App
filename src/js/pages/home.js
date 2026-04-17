@@ -17,7 +17,7 @@ export function loadHome() {
         ${heroSlider([
           '/images/Bangalos-Zongo.jpeg',
           '/images/mutli-color-bird.jpg',
-          '/images/mode-et-beaute.jpg'
+          '/images/mode-et-beaute.jpg',
         ])}
       </div>
 
@@ -80,7 +80,7 @@ export function loadHome() {
   let current = 0;
 
   function showSlide(index) {
-    slides.forEach(s => s.classList.remove('active'));
+    slides.forEach((s) => s.classList.remove('active'));
     if (slides[index]) {
       slides[index].classList.add('active');
     }
@@ -106,14 +106,14 @@ async function loadWeatherData() {
   try {
     const lat = -4.322447;
     const lon = 15.307045;
-    const units = "metric";
-    const apiKey = "d100c53e022ac740b8e46f1ae5caf79f";
+    const units = 'metric';
+    const apiKey = 'd100c53e022ac740b8e46f1ae5caf79f';
 
     const data = await getWeather(lat, lon, apiKey, units);
 
-    const city = document.querySelector("#city");
-    const currentTemp = document.querySelector("#current-temp");
-    const tempImperial = document.querySelector("#temp-imperial");
+    const city = document.querySelector('#city');
+    const currentTemp = document.querySelector('#current-temp');
+    const tempImperial = document.querySelector('#temp-imperial');
 
     if (!city || !currentTemp || !tempImperial) return;
 
@@ -123,8 +123,7 @@ async function loadWeatherData() {
     city.textContent = data.name;
     currentTemp.textContent = `${celsius}°C`;
     tempImperial.textContent = `${fahrenheit}°F`;
-
   } catch (error) {
-    console.error("Weather loading error:", error);
+    console.error('Weather loading error:', error);
   }
 }

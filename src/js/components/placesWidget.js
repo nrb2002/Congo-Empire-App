@@ -24,7 +24,7 @@ export function placesWidget() {
 
       <!-- CTA -->
       <div class="places-cta">
-        <span>Click to see more</span>
+        <span class="cta">Click to see more</span>
         <span class="arrow">→</span>
       </div>
 

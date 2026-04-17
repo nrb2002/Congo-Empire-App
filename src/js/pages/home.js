@@ -4,6 +4,9 @@ import { heroSlider } from '../components/heroSlider.js';
 import { weatherWidget } from '../components/weatherWidget.js';
 import { placesWidget } from '../components/placesWidget.js';
 import { getWeather } from '../services/weatherServices.js';
+import { exploreWidget } from '../components/exploreWidget.js';
+
+
 
 export function loadHome() {
   const app = document.querySelector('#app');
@@ -29,6 +32,9 @@ export function loadHome() {
 
     <!-- WEATHER WIDGET -->
     ${weatherWidget()}
+
+     <!-- EXPLORE WIDGET -->
+    ${exploreWidget()}
 
     <!-- PAGE DIVIDER -->
     <div class="divider"></div>

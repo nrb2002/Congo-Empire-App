@@ -2,6 +2,17 @@
    TABLET (≥ 768px)
 ========================= */
 @media (min-width: 768px) {
+  h2 {
+      font-size: 2rem;
+    }
+  
+    h3 {
+      font-size: 1.2rem;
+    }
+  
+    h1 {
+      font-size: 4.5rem;
+    }
   /* **************************************************** */
   /* Navigation Styles
   /* **************************************************** */
@@ -46,6 +57,29 @@
   .hero {
     padding: 3rem;
     height: 60vh;
+  }
+
+  /* **************************************************** */
+  /* Explore Section */
+  /* **************************************************** */
+    .explore-section {
+      width: 100%;
+    }
+  
+    /* MATCH OTHER SECTIONS */
+    .explore-container {
+      display: flex;
+      gap: 1rem;
+      padding: 0 1rem;
+      /* 👈 align with others */
+      overflow-x: auto;
+    }
+  .explore-container {
+    max-width: 1100px;
+    /* same feel as other sections */
+    margin: 0 auto;
+    /* 👈 centers the whole row */
+    overflow: visible;
   }
 
   /* **************************************************** */

@@ -20,10 +20,17 @@ body {
 
 h2,
 h3 {
-  color: var(--accent);
+  color: var(--primary);
+  font-size: 2rem;
+}
+h2{
+  font-size: 1.25rem;
+}
+h3 {
+  font-size: 1rem;
 }
 h1 {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   color: var(--secondary-light);
 }
 
@@ -174,6 +181,78 @@ h1 {
   margin: 1rem auto;
 }
 
+/* ================================= */
+/* EXPLORE SECTION */
+/* ================================= */
+
+.explore-section {
+  padding: .5rem;
+  background-color: var(--border);
+}
+
+/* CONTAINER */
+/* MATCH OTHER SECTIONS */
+.explore-container {
+  display: flex;
+  gap: .5rem;
+  padding: 0 1rem;
+  overflow-x: auto;
+}
+
+/* CARD */
+.explore-card {
+  min-width: 120px;
+  flex: 1;
+
+  background: var(--secondary-light);
+  border-radius: 12px;
+  padding: .5rem;
+
+  text-align: center;
+  text-decoration: none;
+  color: var(--text-dark);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+
+  transition: transform 0.2s ease;
+}
+
+.explore-card:hover {
+  transform: translateY(-4px);
+}
+
+/* ICON */
+.explore-icon {
+  font-size: 1.8rem;
+}
+
+/* CTA */
+.cta{
+  color: var(--secondary);
+}
+.explore-cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+
+  margin-top: 1rem;
+  font-weight: bold;
+  
+  cursor: pointer;
+}
+
+.explore-cta .arrow {
+  transition: transform 0.2s ease;
+}
+
+.explore-cta:hover .arrow {
+  transform: translateX(6px);
+}
+
 /* ********************************************* */
 /* Weather Styles */
 /* ********************************************* */
@@ -183,6 +262,7 @@ h1 {
   justify-content: space-between;
   display: flex;
   flex-direction: column;
+  background-color: var(--bg-light);
 }
 
 .weather-main #current-temp {
@@ -253,7 +333,6 @@ h1 {
 
   margin: 1rem 0;
   font-weight: bold;
-  color: var(--primary);
   cursor: pointer;
 }
 

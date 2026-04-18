@@ -1,4 +1,4 @@
-import { navbar } from '../components/navbar.js';
+import { header } from '../components/header.js';
 import { footer } from '../components/footer.js';
 import { heroSlider } from '../components/heroSlider.js';
 import { weatherWidget } from '../components/weatherWidget.js';
@@ -12,7 +12,7 @@ export function loadHome() {
   const app = document.querySelector('#app');
 
   app.innerHTML = `
-    ${navbar()}
+    ${header()}
 
     <!-- HERO SECTION -->
     <section class="hero">
@@ -28,6 +28,8 @@ export function loadHome() {
         <h1>Congo Empire</h1>
         <p>Let's explore the Heart of Africa</p>
       </div>
+
+      <a href="#donate">Donate</a>          
     </section>
 
     <!-- WEATHER WIDGET -->

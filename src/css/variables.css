@@ -1,23 +1,19 @@
 :root {
-  /* 🌲 PRIMARY (Forest Green) */
-  --primary: #1b4332;
-  --primary-light: #2d6a4f;
+  /* PRIMARY  */
+  --primary: #06c1fa;
+  /* --primary: #2FCEFF; */
 
-  /* 🟤 SECONDARY (Golden Soil) */
-  --secondary: #5d3f07;
-  --secondary-light: #ecd57a;
+  /* SECONDARY */
+  --secondary: #E1230C;
 
-  /* 🍷 ACCENT (Dark Red) */
-  --accent: #580808;
-  --accent-light: #b91c1c;
+  --accent: #f5e466;
+  --accent-golden: #f2af1f;
 
   /* ⚪ BACKGROUND */
-  --bg-light: #f5f3ef;
+  --bg-light: #f8f1e2;
+  --bg-dark:#393838;
 
   /* ⚫ TEXT */
   --text-dark: #1a1a1a;
   --text-light: #ffffff;
-
-  /* BORDER */
-  --border: #ddd;
 }
